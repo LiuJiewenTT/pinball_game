@@ -95,8 +95,18 @@ class gamebody(gameobj):
         brickshape = brick.brick.shape
         rc = [space_avail[i] // brickshape[i] for i in [0,1]]
         print(f'rc = {rc}')
+
         self.grid = grid.grid(rc, brickshape)
         self.grid.name = 'grid'
+
+        # init grid pos
+        t = self.shape
+        t[1] //= 2
+        dy = 0
+        ttl = [dy + self.border_top.shape[0], t[1] - self.grid.getShape()[1] // 2]
+        self.grid.setPos_hw(ttl)
+        print(f'grid pos: {self.grid.getPos()}')
+
         self.grid.draw()
         self.cpont_list.append(self.grid)
 
@@ -106,6 +116,7 @@ class gamebody(gameobj):
             x:gameobj
             tl = x.getPos()
             img_t = x.getImg()
-            img_t2 = corefunc.lapTIMG( img_t2, img_t, corefunc.TRANSPARENCY_AUTO, pos=tl)
+            # img_t2 = corefunc.lapTIMG( img_t2, img_t, corefunc.TRANSPARENCY_AUTO, pos=tl)
+            corefunc.simpleLap(img_t2, img_t, pos=tl)
         # self.paper = img_t2
         self.setImg(img_t2) # Refresh for displaying

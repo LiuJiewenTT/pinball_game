@@ -22,3 +22,13 @@ def lapTIMG(base, cover, transparency=0, gamma=0, pos=[0, 0], ifCopy=False):
             else:
                 ret[j + pos[0]][i + pos[1]] = lapTUnit(base[j + pos[0]][i + pos[1]], cover[j][i], w=int(1.0 * cover[j][i][3] * opacity / 255), gamma=gamma)
     return ret
+
+def simpleLap(base, cover, pos=[0,0], ifCopy=False):
+    if ifCopy is True:
+        ret = base.copy()
+    else:
+        ret = base
+    length = cover[0].__len__()
+    for j in range(0, cover.__len__()):
+        ret[j+pos[0]][pos[1]:pos[1]+length] = cover[j]
+    return ret

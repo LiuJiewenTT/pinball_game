@@ -124,7 +124,8 @@ class grid(gameobj):
                 x:gameobj
                 tl = x.getPos()
                 img_t = x.getImg()
-                img_t2 = corefunc.lapTIMG( img_t2, img_t, corefunc.TRANSPARENCY_AUTO, pos=tl)
+                # img_t2 = corefunc.lapTIMG( img_t2, img_t, corefunc.TRANSPARENCY_AUTO, pos=tl)
+                corefunc.simpleLap(img_t2, img_t, pos=tl)
         self.setImg(img_t2) # Refresh for displaying
 
     def RefreshImg(self):
