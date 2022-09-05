@@ -20,5 +20,5 @@ def lapTIMG(base, cover, transparency=0, gamma=0, pos=[0, 0], ifCopy=False):
             if opacity is None:
                 ret[j + pos[0]][i + pos[1]] = lapTUnit(base[j + pos[0]][i + pos[1]], cover[j][i], w=None, gamma=gamma)
             else:
-                ret[j + pos[0]][i + pos[1]] = lapTUnit(base[j + pos[0]][i + pos[1]], cover[j][i], w=int(float(cover[j][i][3] * opacity) / 255), gamma=gamma)
+                ret[j + pos[0]][i + pos[1]] = lapTUnit(base[j + pos[0]][i + pos[1]], cover[j][i], w=int(1.0 * cover[j][i][3] * opacity / 255), gamma=gamma)
     return ret
