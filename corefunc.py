@@ -6,8 +6,11 @@ def lapTUnit(a, b, w=None, gamma=0):
 
 
 TRANSPARENCY_AUTO = 0
-def lapTIMG(base, cover, transparency=0, gamma=0, pos=[0, 0]):
-    ret = base.copy()
+def lapTIMG(base, cover, transparency=0, gamma=0, pos=[0, 0], ifCopy=False):
+    if ifCopy is True:
+        ret = base.copy()
+    else:
+        ret = base
     opacity = None
     if transparency != 0:
         print(transparency)
